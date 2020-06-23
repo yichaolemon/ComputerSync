@@ -1,0 +1,17 @@
+
+message DiffSummary {
+    // list of files that have changed
+    repeated string filepaths = 1;
+}
+
+message DiffContents {
+    bytes contents;
+    bool more;
+}
+
+message Empty {
+}
+
+rpc NotifyDiff(DiffSummary) (Empty);
+
+rpc FetchDiff(DiffSummary) (Diff);
